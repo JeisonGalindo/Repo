@@ -1,13 +1,6 @@
 <ng-sidebar-container class="app" [ngClass]="{'mode-boxed': isBoxed, 'sidebar-opened': isOpened, 'theme-light': theme == 'light', 'theme-dark': theme == 'dark', 'mode-push': _mode == 'push', 'mode-dock': _mode == 'dock', 'mode-over': _mode == 'over', 'mode-slide': _mode == 'slide', 'no-footer': options?.removeFooter, 'map-header': options?.mapHeader}">
-  <ng-sidebar
-    [(opened)]="isOpened"
-    [(mode)]="_mode"
-    [position]="'left'"
-    [dockedSize]="'80px'"
-    [autoCollapseWidth]="'991'"
-    [closeOnClickOutside]="isOver()"
-    [showBackdrop]="isOver()"
-    [sidebarClass]="'sidebar-panel'" #sidebar>
+  <ng-sidebar [(opened)]="isOpened" [(mode)]="_mode" [position]="'left'" [dockedSize]="'80px'" [autoCollapseWidth]="'991'"
+    [closeOnClickOutside]="isOver()" [showBackdrop]="isOver()" [sidebarClass]="'sidebar-panel'" #sidebar>
     <nav class="navbar custom-navbar main-brand">
       <a class="navbar-brand mr-auto" [routerLink]="['/']">
         <img src="assets/images/logo.png" class="navbar-brand-logo" alt="">
@@ -58,12 +51,10 @@
             </li>
           </ul>
         </li>
-        <li class="navigation-item"><hr class="mt-0 mb-0" /></li>
         <li class="navigation-item">
-          <a class="navigation-link" (click)="addMenuItem()">
-            <i class="icon icon-basic-add"></i>
-            <span>Add</span>
-          </a>
+          <hr class="mt-0 mb-0" />
+        </li>
+        <li class="navigation-item">
         </li>
       </ul>
     </nav>
@@ -107,7 +98,7 @@
               <span>Signout</span>
             </a>
           </div>
-        </li> 
+        </li>
         <li class="nav-item" ngbDropdown>
           <a href="javascript:;" class="nav-link" ngbDropdownToggle>
             <i class="fi flaticon-notification"></i>
@@ -141,7 +132,7 @@
             <i class="fi flaticon-fullscreen"></i>
           </a>
         </li>
-        
+
         <li class="nav-item">
           <span class="nav-divider"></span>
         </li>
@@ -150,7 +141,7 @@
             <i class="fi flaticon-search"></i>
           </a>
         </li>
-              
+
       </ul>
     </nav>
 
@@ -177,7 +168,8 @@
 
 <ng-template #search let-c="close" let-d="dismiss">
   <form class="search__form" action="">
-    <input class="search-input" name="search" type="search" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus="true" />
+    <input class="search-input" name="search" type="search" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off"
+      spellcheck="false" autofocus="true" />
     <p class="text-muted"><small><strong>Hit enter to search or ESC to close</strong></small></p>
   </form>
   <div class="search-suggestions">
@@ -255,7 +247,8 @@
 
       <small class="ff-headers text-uppercase mb-3"><strong>Select A Language</strong></small>
       <div class="d-flex align-items-center">
-        <select class="custom-select" [(ngModel)]="currentLang" #langSelect="ngModel" (ngModelChange)="translate.use(currentLang)" placeholder="Select language" style="min-width: 50%;">
+        <select class="custom-select" [(ngModel)]="currentLang" #langSelect="ngModel" (ngModelChange)="translate.use(currentLang)"
+          placeholder="Select language" style="min-width: 50%;">
           <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</option>
         </select>
       </div>

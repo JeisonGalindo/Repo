@@ -37,7 +37,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
 
   @ViewChild('sidebar') sidebar;
 
-  constructor (
+  constructor(
     public menuItems: MenuItems,
     private router: Router,
     private route: ActivatedRoute,
@@ -81,8 +81,8 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
     this._router.unsubscribe();
   }
 
-  setTitle( newTitle: string) {
-    this.titleService.setTitle( 'Decima - Bootstrap 4 Angular Admin Template | ' + newTitle );
+  setTitle(newTitle: string) {
+    this.titleService.setTitle('Decima - Bootstrap 4 Angular Admin Template | ' + newTitle);
   }
 
   toogleSidebar(): void {
@@ -97,19 +97,6 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
 
   openSearch(search) {
     this.modalService.open(search, { windowClass: 'search', backdrop: false });
-  }
-
-  addMenuItem(): void {
-    this.menuItems.add({
-      state: 'menu',
-      name: 'MENU',
-      type: 'sub',
-      icon: 'basic-webpage-txt',
-      children: [
-        {state: 'menu', name: 'MENU'},
-        {state: 'menu', name: 'MENU'}
-      ]
-    });
   }
 
   @HostListener('window:resize', ['$event'])
