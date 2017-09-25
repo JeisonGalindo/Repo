@@ -10,8 +10,8 @@ export const AppRoutes: Routes = [{
     path: '',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
   }, {
-    path: 'media',
-    loadChildren: './media/media.module#MediaModule'
+    path: 'list',
+    loadChildren: './list/list.module#ListModule'
   }]
 }];
 
