@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { TranslateService } from '@ngx-translate/core';
 
+import { AuthenticationService } from '../../servicios/authentication.service';
+
 export interface Options {
   heading?: string;
   removeFooter?: boolean;
@@ -38,6 +40,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidebar') sidebar;
 
   constructor(
+    private autService: AuthenticationService,
     public menuItems: MenuItems,
     private router: Router,
     private route: ActivatedRoute,
@@ -51,7 +54,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     if (this.isOver()) {
-      this._mode = 'over';
+      this._mode = 'dock';
       this.isOpened = false;
     }
 
@@ -75,6 +78,15 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
         this.setTitle(this.options.heading);
       }
     });
+  }
+
+  isAuth() {
+    return this.autService.isAuth();
+  }
+
+  onLogout() {
+    this.autService.logout();
+    this.router.navigate([''])
   }
 
   ngOnDestroy() {

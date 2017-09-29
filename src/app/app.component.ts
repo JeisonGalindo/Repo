@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-
 import * as firebase from 'firebase';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-
-  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     firebase.initializeApp({
-      apiKey: 'AIzaSyDNPjH-s7Eh2Ico-A-a7DdGyeFyTfD4gTY',
-      authDomain: 'template-decima.firebaseapp.com'
+      apiKey: 'AIzaSyDxDSMOm_MI-OXnszWvQ662b6WY_kNV3Ok',
+      authDomain: 'templateedited.firebaseapp.com',
     });
   }
 

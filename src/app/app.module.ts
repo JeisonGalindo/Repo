@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -15,6 +15,9 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { SharedModule } from './shared/shared.module';
+
+import { AuthenticationService } from './servicios/authentication.service';
+import { InisesComponent } from './inises/inises.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +35,7 @@ export function createTranslateLoader(http: Http) {
     SharedModule,
     RouterModule.forRoot(AppRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     TranslateModule.forRoot({
       loader: {
@@ -43,7 +47,7 @@ export function createTranslateLoader(http: Http) {
     NgbModule.forRoot(),
     SidebarModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,15 @@
   <title>Template</title>
   <base href="/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/vendor/pace/themes/black/pace-theme-flash.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Playfair+Display:400,400i,700,700i|Montserrat:300,400,600,900|Space+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/pace/themes/black/pace-theme-flash.css" />
+  <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Playfair+Display:400,400i,700,700i|Montserrat:300,400,600,900|Space+Mono"
+    rel="stylesheet">
   <style type="text/css">
     .pace .pace-activity {
       top: 19px;
       right: 19px;
     }
+
     .page-loading {
       position: fixed;
       left: 0;
@@ -26,6 +29,7 @@
       transition: opacity 1s ease-in-out;
       z-index: -1;
     }
+
     .loading-icon {
       position: absolute;
       left: 50%;
@@ -35,10 +39,12 @@
       margin-left: -19px;
       margin-top: -19px;
     }
-    app-root:empty ~ .page-loading {
+
+    app-root:empty~.page-loading {
       opacity: 1;
       z-index: 1;
     }
+
   </style>
   <script src="assets/vendor/pace/pace.js"></script>
   <script type="text/javascript">
@@ -48,9 +54,13 @@
       // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/MouseEvent#Polyfill
       if (!!window.MSInputMethodContext && !!document.documentMode || document.documentMode === 10) {
         function MouseEvent(eventType, params) {
-          params = params || { bubbles: false, cancelable: false };
+          params = params || {
+            bubbles: false,
+            cancelable: false
+          };
           var mouseEvent = document.createEvent('MouseEvent');
-          mouseEvent.initMouseEvent(eventType, params.bubbles, params.cancelable, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+          mouseEvent.initMouseEvent(eventType, params.bubbles, params.cancelable, window, 0, 0, 0, 0, 0, false, false,
+            false, false, 0, null);
 
           return mouseEvent;
         }
@@ -67,16 +77,16 @@
         restartOnPushState: true,
         restartOnRequestAfter: true,
         ajax: {
-          trackMethods: [ 'POST','GET']
+          trackMethods: ['POST', 'GET']
         }
       };
     })(window);
+
   </script>
 </head>
+
 <body>
   <app-root></app-root>
-  <div class="page-loading">
-    <img src="assets/images/oval.svg" class="loading-icon" />
-  </div>
 </body>
+
 </html>

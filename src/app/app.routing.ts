@@ -17,7 +17,10 @@ export const AppRoutes: Routes = [
     {
       path: 'registro',
       loadChildren: './registro/registro.module#RegistroModule'
+    },
+    {
+      path: 'inises',
+      loadChildren: './inises/inises.module#InisesModule'
     }]
   }
 ];
-
